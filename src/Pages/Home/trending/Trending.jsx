@@ -5,10 +5,10 @@ import useFetch from "../../../hooks/useFetch";
 import Carousel from "../../../components/carousel/Carousel";
 
 const Trending = () => {
-  const [endPoint,setEndPoint]=useState("day");
-  const {data,loading}=useFetch(`/trending/all/${endPoint}`);
+  const [endPoint, setEndPoint] = useState("day");
+  const { data, loading } = useFetch(`/trending/all/${endPoint}`);
   const onTabChange = (tab) => {
-    setEndPoint(tab == "Day" ? "day" :"week")
+    setEndPoint(tab == "Day" ? "day" : "week");
   };
   return (
     <div className="carouselSection">
@@ -16,7 +16,7 @@ const Trending = () => {
         <div className="carouselTitle">Trending</div>
         <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} />
       </ContentWrapper>
-      <Carousel data={data?.results} loading={loading}/>
+      <Carousel data={data?.results} loading={loading} />
     </div>
   );
 };

@@ -11,6 +11,7 @@ import posterFallback from "../../assets/no-poster.png";
 import Img from "../lazyLoadImage/Img";
 import CircleRating from "../CircleRating/CircleRating";
 import dayjs from "dayjs";
+import Genres from "../genres/Genres";
 const Carousel = ({ data, loading }) => {
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
@@ -45,11 +46,13 @@ const Carousel = ({ data, loading }) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
                 : posterFallback;
+                // console.log(data)
               return (
                 <div key={item.id} className="carouselItem">
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
+                    <Genres data={item.genre_ids.slice(0,2)}/>
                   </div>
                   <div className="textBlock">
                     <span className="title">{item.title || item.name}</span>
