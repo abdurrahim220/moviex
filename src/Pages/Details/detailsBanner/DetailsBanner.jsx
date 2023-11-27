@@ -60,7 +60,7 @@ const DetailsBanner = ({ video, crew }) => {
                                 ) : (
                                     <Img
                                         className="posterImg"
-                                        src={PosterFallback}
+                                        src={posterImg}
                                     />
                                 )}
                             </div>
@@ -80,7 +80,7 @@ const DetailsBanner = ({ video, crew }) => {
 
                                 <div className="row">
                                     <CircleRating
-                                        rating={data.vote_average.toFixed(
+                                        rating={data.vote_average?.toFixed(
                                             1
                                         )}
                                     />
